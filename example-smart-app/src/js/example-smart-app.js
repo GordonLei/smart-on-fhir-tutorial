@@ -33,8 +33,16 @@
 
           if (typeof patient.name[0] !== 'undefined') {
             console.log(patient.name[0])
-            fname = patient.name[0].given.join(' ');
-            lname = patient.name[0].family.join(' ');
+            try{
+              fname = patient.name[0].given.join(' ');
+              lname = patient.name[0].family.join(' ');
+            }
+            catch(error){
+              console.log(error)
+              fname = patient.name[0].given;
+              lname = patient.name[0].family;
+            }
+            
           }
 
           var height = byCodes('8302-2');
